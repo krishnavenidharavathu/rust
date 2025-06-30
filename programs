@@ -1,0 +1,289 @@
+\Chapter -1
+
+1. Write a program to display output using print!
+fn main() {
+    print!("Hello, world using print!");
+}
+
+2. Write a program to display Output following pattern using Placeholders
+1
+22
+333
+4444
+55555
+fn main() {
+    let line1 = format!("{:1}", "1");
+    let line2 = format!("{:2}", "22");
+    let line3 = format!("{:3}", "333");
+    let line4 = format!("{:4}", "4444");
+    let line5 = format!("{:5}","55555");
+
+    println!("{}", line1);
+    println!("{}", line2);
+    println!("{}", line3);
+    println!("{}", line4);
+    println!("{}", line5);
+
+}
+
+
+3. Write a program to do the following
+a. Declare a variable x and store value 1000 in it.
+b. Declare a variable y and store value “Programming” in it
+c. Print the values of x and y
+d. Change the value of x to 1100
+e. Print the values of x and y
+fn main() {
+    // a. Declare a variable x and store value 1000 in it.
+    let mut x = 1000;
+
+    // b. Declare a variable y and store value “Programming” in it
+    let y = "Programming";
+
+    // c. Print the values of x and y
+    println!("x = {}, y = {}", x, y);
+
+    // d. Change the value of x to 1100
+    x = 1100;
+
+    // e. Print the values of x and y
+    println!("x = {}, y = {}", x, y);
+}
+
+
+
+4. Write a program to implement the Scope and Shadowing
+fn main() {
+    let x = 5;
+    println!("Outside block, x = {}", x); // prints 5
+
+    {
+        // Shadowing: This 'x' shadows the outer 'x' in this inner scope
+        let x = x + 10;
+        println!("Inside inner block, shadowed x = {}", x); // prints 15
+
+        // Scope: This 'y' only exists inside this block
+        let y = 20;
+        println!("Inside inner block, y = {}", y); // prints 20
+    }
+
+    // Back to outer scope
+    println!("Back in outer block, x = {}", x); // prints 5
+    // println!("y = {}", y); // This would cause an error: `y` is out of scope
+}
+
+
+5. Write a program to implement the following
+a. Implicit type declaration
+b. Explicit type declaration
+fn main() {
+    // a. Implicit type declaration
+    let a = 42;             // Rust infers `i32`
+    let b = 3.14;           // Rust infers `f64`
+    let c = "Rust";         // Rust infers `&str`
+
+    // b. Explicit type declaration
+    let x: i32 = 100;
+    let y: f32 = 2.5;
+    let z: &str = "Programming";
+
+    println!("Implicit types: a = {}, b = {}, c = {}", a, b, c);
+    println!("Explicit types: x = {}, y = {}, z = {}", x, y, z);
+}
+
+6. Write Program to Declare an array, arr, of size 6 that has numbers divisible by 2 ranging
+from 0 to 10 and Print the value of arr. 
+fn main() {
+    // Declare an array with numbers divisible by 2 from 0 to 10
+    let arr = [0, 2, 4, 6, 8, 10];
+
+    // Print the array
+    println!("Array elements: {:?}", arr);
+}
+
+
+7. Write a program to create and access a tuple.
+fn main() {
+    // Creating a tuple
+    let person = ("Alice", 30, true);
+
+    // Accessing tuple elements using indexing
+    println!("Name: {}", person.0);
+    println!("Age: {}", person.1);
+    println!("Is Active: {}", person.2);
+}
+
+
+8. Write a program to create an array of 10 elements and implement the following
+a. Create a of 2nd and 3rd element
+b. Omit the start index of the slice
+c. Omit the End Index of the Slice
+d. Omit both Start and End Index of the Slice
+fn main() {
+    // Create an array of 10 elements
+    let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    // a. Slice of 2nd and 3rd element (index 1 and 2)
+    let slice_a = &arr[1..3];
+    println!("a. Slice of 2nd and 3rd elements: {:?}", slice_a);
+
+    // b. Omit start index (from beginning to index 4, exclusive)
+    let slice_b = &arr[..4];
+    println!("b. Omit start index: {:?}", slice_b);
+
+    // c. Omit end index (from index 6 to end)
+    let slice_c = &arr[6..];
+    println!("c. Omit end index: {:?}", slice_c);
+
+    // d. Omit both start and end index (entire array)
+    let slice_d = &arr[..];
+    println!("d. Omit both start and end index: {:?}", slice_d);
+}
+
+9. Write a program to create different types of constants print it in the output
+// Constants must be annotated with a type and declared in global scope
+const INT_CONST: i32 = 100;
+const FLOAT_CONST: f64 = 3.14;
+const BOOL_CONST: bool = true;
+const CHAR_CONST: char = 'R';
+const STR_CONST: &str = "Rust";
+
+fn main() {
+    println!("Integer Constant: {}", INT_CONST);
+    println!("Float Constant: {}", FLOAT_CONST);
+    println!("Boolean Constant: {}", BOOL_CONST);
+    println!("Character Constant: {}", CHAR_CONST);
+    println!("String Constant: {}", STR_CONST);
+}
+
+
+10. Declaring String Object and converting String Literal to String Object
+fn main() {
+    // 1. Declaring a String object directly
+    let s1 = String::from("Hello from String object");
+
+    // 2. Converting a string literal (&str) to String using .to_string()
+    let s2 = "Hello from literal".to_string();
+
+    // 3. Another common way: using String::from
+    let s3 = String::from("Another example");
+
+    // Printing all
+    println!("s1: {}", s1);
+    println!("s2: {}", s2);
+    println!("s3: {}", s3);
+}
+
+Chapter-2
+1. Write a program to implement Type Casting Operator.
+fn main() {
+    // Integer to float
+    let int_val: i32 = 10;
+    let float_val: f32 = int_val as f32;
+    println!("Integer {} casted to float: {}", int_val, float_val);
+
+    // Float to integer
+    let original_float: f64 = 9.75;
+    let int_from_float: i32 = original_float as i32;
+    println!("Float {} casted to integer: {}", original_float, int_from_float);
+
+    // u8 to char
+    let ascii_val: u8 = 65;
+    let character: char = ascii_val as char;
+    println!("u8 value {} casted to char: {}", ascii_val, character);
+
+    // i32 to u8 (truncation example)
+    let large_number: i32 = 300;
+    let small_number: u8 = large_number as u8; // 300 % 256 = 44
+    println!("i32 {} casted to u8: {}", large_number, small_number);
+}
+
+2. Write a program to implement Borrowing and Dereferencing Operators
+fn main() {
+    // Immutable variable
+    let num = 50;
+
+    // Borrowing: create a reference to num
+    let ref1 = &num;
+    println!("Borrowed value (ref1): {}", ref1);
+
+    // Dereferencing: accessing the original value from the reference
+    println!("Dereferenced value (*ref1): {}", *ref1);
+
+    // Mutable variable
+    let mut value = 100;
+
+    // Mutable borrow
+    let ref2 = &mut value;
+    println!("Before modification, ref2: {}", *ref2);
+
+    // Modify the original value through the reference
+    *ref2 += 50;
+    println!("After modification, value: {}", value);
+}
+
+Chapter-3
+
+1. Write a program to check if a number is positive or negative
+fn main() {
+    let number = -10;
+
+    if number > 0 {
+        println!("{} is positive", number);
+    } else if number < 0 {
+        println!("{} is negative", number);
+    } else {
+        println!("The number is zero");
+    }
+}
+
+
+2. Write a program to determine if a number is even or odd
+fn main() {
+    let number = 7;
+
+    if number % 2 == 0 {
+        println!("{} is even", number);
+    } else {
+        println!("{} is odd", number);
+    }
+}
+
+
+3. Write a program to make a calculator using Match Expression
+fn main() {
+    let a = 10.0;
+    let b = 5.0;
+    let operator = '+';
+    let result = match operator {
+        '+' => a + b,
+        '-' => a - b,
+        '*' => a * b,
+        '/' => {
+            if b != 0.0 {
+                a / b
+            } else {
+                println!("Cannot divide by zero!");
+                return;
+            }
+        },
+        _ => {
+            println!("Invalid operator!");
+            return;
+        }
+    };
+    println!("Result of {} {} {} = {}", a, operator, b, result);
+}
+
+
+4. Write a program to Match a pattern using If Let Expression.
+fn main() {
+    let value = Some(5);
+
+    // Match the pattern using if let
+    if let Some(number) = value {
+        println!("Matched! The number is {}", number);
+    } else {
+        println!("No match found.");
+    }
+}
